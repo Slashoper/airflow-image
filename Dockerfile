@@ -9,4 +9,5 @@ RUN apt-get update \
 USER airflow
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 RUN pip install --no-cache-dir apache-airflow-providers-apache-hive==2.2.0 \
-  && pip install --no-cache-dir apache-airflow-providers-apache-spark==2.1.0
+  && pip install --no-cache-dir apache-airflow-providers-apache-spark==2.1.0 \
+  && pip install --no-cache-dir apache-airflow-providers-apache-hdfs==2.2.0
