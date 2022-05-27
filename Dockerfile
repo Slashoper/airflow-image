@@ -2,7 +2,7 @@ FROM apache/airflow:2.2.4
 USER root
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-         openjdk-11-jre-headless build-essential libsasl2-dev\
+         openjdk-11-jre-headless build-essential libsasl2-dev krb5-kdc krb5-admin-server\
   && apt-get autoremove -yqq --purge \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
