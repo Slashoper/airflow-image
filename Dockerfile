@@ -15,3 +15,4 @@ ENV HADOOP_HOME /opt/beeline/hadoop-3.0.0
 ENV HIVE_HOME /opt/beeline/apache-hive-2.1.1-bin
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH $PATH:$HIVE_HOME/bin
+USER airflow
