@@ -11,7 +11,7 @@ RUN mkdir /opt/beeline \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
 	| tar -xzC /opt/beeline \
-	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/389/trino-cli-389-executable.jar --output /opt/beeline/trino \
+	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/400/trino-cli-400-executable.jar --output /opt/beeline/trino \
 	&& chmod +x /opt/beeline/trino
 ENV HADOOP_HOME /opt/beeline/hadoop-3.0.0
 ENV HIVE_HOME /opt/beeline/apache-hive-2.1.1-bin
