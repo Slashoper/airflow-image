@@ -12,11 +12,7 @@ RUN mkdir /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/400/trino-cli-400-executable.jar --output /opt/beeline/trino \
-	&& chmod +x /opt/beeline/trino \
-	&& curl -SL https://dlcdn.apache.org/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz \
-	| tar -xzC /opt/beeline \
-	&& curl -SL https://dlcdn.apache.org/flink/flink-1.15.2/flink-1.15.2-bin-scala_2.12.tgz \
-	| tar -xzC /opt/beeline
+	&& chmod +x /opt/beeline/trino
 ENV HADOOP_HOME /opt/beeline/hadoop-3.0.0
 ENV HIVE_HOME /opt/beeline/apache-hive-2.1.1-bin
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
