@@ -11,8 +11,8 @@ RUN mkdir /opt/beeline \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz \
 	| tar -xzC /opt/beeline \
-#	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/400/trino-cli-400-executable.jar --output /opt/beeline/trino \
-#	&& chmod +x /opt/beeline/trino \
+	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/400/trino-cli-400-executable.jar --output /opt/beeline/trino \
+	&& chmod +x /opt/beeline/trino \
 	&& curl -SL https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz  \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/flink/flink-1.13.6/flink-1.13.6-bin-scala_2.11.tgz \
