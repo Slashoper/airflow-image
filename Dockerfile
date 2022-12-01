@@ -16,7 +16,7 @@ RUN mkdir /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz  \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://archive.apache.org/dist/flink/flink-1.13.6/flink-1.13.6-bin-scala_2.11.tgz \
-	| tar -xzC /opt/beeline \
+	| tar -xzC /opt/beeline
 # COPY S3 implements jars
 COPY ../jar/aws-java-sdk-core-1.12.286.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
 COPY ../jar/aws-java-sdk-dynamodb-1.12.257.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
