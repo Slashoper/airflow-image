@@ -16,7 +16,16 @@ RUN mkdir /opt/beeline \
 	&& curl -SL https://mirrors.cloud.tencent.com/apache/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz \
 	| tar -xzC /opt/beeline \
 	&& curl -SL http://mirrors.cloud.tencent.com/apache/flink/flink-1.14.6/flink-1.14.6-bin-scala_2.12.tgz \
-	| tar -xzC /opt/beeline
+	| tar -xzC /opt/beeline \
+# COPY S3 implements jars
+COPY ../jar/aws-java-sdk-core-1.12.286.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
+COPY ../jar/aws-java-sdk-dynamodb-1.12.257.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
+COPY ../jar/aws-java-sdk-s3-1.12.99.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
+COPY ../jar/hadoop-aws-3.3.2.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
+# 设定时区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 ENV HADOOP_HOME /opt/beeline/hadoop-3.0.0
 ENV HIVE_HOME /opt/beeline/apache-hive-2.1.1-bin
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
