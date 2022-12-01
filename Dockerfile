@@ -13,15 +13,15 @@ RUN mkdir /opt/beeline \
 	| tar -xzC /opt/beeline \
 	&& curl -SL https://repo1.maven.org/maven2/io/trino/trino-cli/400/trino-cli-400-executable.jar --output /opt/beeline/trino \
 	&& chmod +x /opt/beeline/trino \
-	&& curl -SL https://mirrors.cloud.tencent.com/apache/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz \
+	&& curl -SL https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz  \
 	| tar -xzC /opt/beeline \
-	&& curl -SL http://mirrors.cloud.tencent.com/apache/flink/flink-1.14.6/flink-1.14.6-bin-scala_2.12.tgz \
+	&& curl -SL https://archive.apache.org/dist/flink/flink-1.13.6/flink-1.13.6-bin-scala_2.11.tgz \
 	| tar -xzC /opt/beeline \
 # COPY S3 implements jars
-COPY ../jar/aws-java-sdk-core-1.12.286.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
-COPY ../jar/aws-java-sdk-dynamodb-1.12.257.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
-COPY ../jar/aws-java-sdk-s3-1.12.99.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
-COPY ../jar/hadoop-aws-3.3.2.jar /opt/beeline/spark-3.3.1-bin-hadoop3/jars/
+COPY ../jar/aws-java-sdk-core-1.12.286.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
+COPY ../jar/aws-java-sdk-dynamodb-1.12.257.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
+COPY ../jar/aws-java-sdk-s3-1.12.99.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
+COPY ../jar/hadoop-aws-3.3.2.jar /opt/beeline/spark-3.3.0-bin-hadoop3/jars/
 # 设定时区
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
